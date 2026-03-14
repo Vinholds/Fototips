@@ -1,33 +1,35 @@
-# 📸 Fototips — Photography Sharing Platform
+# 🚀 Fototips - Photography Sharing Platform
 
 <p align="center">
-  <strong>🚧 Demo coming soon</strong>
+  <strong>🌐 Live Demo: coming soon</strong>
 </p>
 
 <p align="center">
-  <img src="https://img.shields.io/badge/Status-In%20Development-orange?style=for-the-badge" alt="Status">
-  <img src="https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react" alt="React">
-  <img src="https://img.shields.io/badge/Node.js-Express-339933?style=for-the-badge&logo=node.js" alt="Node.js">
-  <img src="https://img.shields.io/badge/PostgreSQL-15+-4169E1?style=for-the-badge&logo=postgresql" alt="PostgreSQL">
-  <img src="https://img.shields.io/badge/Docker-Ready-2496ED?style=for-the-badge&logo=docker" alt="Docker">
+  <img src="https://img.shields.io/badge/React-18-blue.svg" alt="React">
+  <img src="https://img.shields.io/badge/Node.js-Express-green.svg" alt="Node.js">
+  <img src="https://img.shields.io/badge/PostgreSQL-15+-blue.svg" alt="PostgreSQL">
+  <img src="https://img.shields.io/badge/Docker-Ready-blue.svg" alt="Docker">
 </p>
 
-<p align="center">
-  A modern, full-featured photography sharing platform built with React, Node.js, PostgreSQL, and Socket.IO.<br>
-  A community-driven platform for photographers to share, discover, and discuss photography.
-</p>
+A modern, full-featured photography sharing platform built with React, Node.js, PostgreSQL, and Socket.IO. A community-driven platform for photographers to share, discover, and discuss photography.
 
-<p align="center">
-  ⭐ Star this repo to follow the journey
-</p>
+## 📸 Screenshots
+
+| Home | Gallery | Profile |
+|------|---------|---------|
+| ![](screenshots/home.png) | ![](screenshots/gallery.png) | ![](screenshots/profile.png) |
+
+| Upload | Forum | Messaging |
+|--------|------|---------------|
+| ![](screenshots/upload.png) | ![](screenshots/forum.png) | ![](screenshots/messages.png) |
 
 ---
 
 ## 📋 Table of Contents
 
-1. [Sneak Peek](#-sneak-peek)
-2. [Features](#-features)
-3. [Who is this for?](#-who-is-this-for)
+1. [Screenshots](#-screenshots)
+2. [Who is this for?](#-who-is-this-for)
+3. [Features](#-features)
 4. [Tech Stack](#-tech-stack)
 5. [Architecture](#-architecture)
 6. [Project Structure](#-project-structure)
@@ -40,33 +42,8 @@
 11. [Security](#-security-features)
 12. [Performance](#-performance-optimizations)
 13. [UI Features](#-ui-features)
-
----
-
-## 👀 Sneak Peek
-
-> Screenshots taken from the current development build.
-
-### User Profile
-![User Profile](screenshots/profile.png)
-
-### Photo Detail Page
-![Photo Detail](screenshots/photo-detail.png)
-
-### Admin Dashboard
-![Admin Dashboard](screenshots/admin-dashboard.png)
-
-### Theme Settings
-![Theme Settings](screenshots/theme-settings.png)
-
-### Language Management
-![Language Management](screenshots/language-management.png)
-
-### OAuth Settings
-![OAuth Settings](screenshots/oauth-settings.png)
-
-### Security Settings
-![Security Settings](screenshots/security.png)
+14. [License](#-license)
+15. [Contributing](#-contributing)
 
 ---
 
@@ -94,6 +71,7 @@ This platform is ideal for:
 | **Forum** | Categories, threads, voting, polls, tags, mentions, bookmarks |
 | **Messaging** | Real-time private & group messaging, read receipts, block users |
 | **Contests** | Photo voting competitions with categories |
+| **Store** | Products, variants, reviews, cart, wishlists, coupons |
 | **Activity** | User activity tracking and profile activity feed |
 | **External Images** | Import photos from Google Photos, Apple Photos via OAuth |
 
@@ -122,7 +100,7 @@ This platform is ideal for:
 - Full-text search
 - Activity logging
 - Disk space management & quotas
-- OAuth (Google, GitHub, Microsoft, Discord)
+- OAuth (Google, Facebook)
 - Rate limiting
 - Maintenance mode
 
@@ -135,8 +113,8 @@ This platform is ideal for:
 - Language management (i18n)
 - Camera & lens management
 - Forum, cookie, OAuth, page, emoji management
-- **Messages Management** — View and manage user messages
-- **External Images OAuth** — Configure external image service integrations
+- **Messages Management** - View and manage user messages
+- **External Images OAuth** - Configure external image service integrations
 
 ---
 
@@ -181,15 +159,15 @@ This platform is ideal for:
 │   Client    │ ───► │   Nginx     │ ───► │     API     │ ───► │     DB      │
 │  (Browser)  │      │ (Port 80)   │      │  (Port 5001)│      │ (PostgreSQL)│
 └─────────────┘      └─────────────┘      └─────────────┘      │  (Port 5432)│
-                                                                └─────────────┘
-                                                                      │
-                      ┌───────────────────────────────────────────────┘
-                      │                       │
-                      ▼                       ▼
-               ┌─────────────┐        ┌─────────────┐
-               │    Redis    │        │   Storage   │
-               │ (Port 6379) │        │  (uploads/) │
-               └─────────────┘        └─────────────┘
+                                                              └─────────────┘
+                                                                    │
+                    ┌───────────────────────────────────────────────┘
+                    │                       │
+                    ▼                       ▼
+             ┌─────────────┐        ┌─────────────┐
+             │    Redis    │        │   Storage   │
+             │ (Port 6379) │        │  (uploads/) │
+             └─────────────┘        └─────────────┘
 ```
 
 ### Request Flow
@@ -197,11 +175,11 @@ This platform is ideal for:
 | Step | Component | Description |
 |------|-----------|-------------|
 | 1 | **Client** | Browser accessing the application via HTTP/HTTPS |
-| 2 | **Nginx** | Reverse proxy (port 80/443) — routes requests, serves static files |
-| 3 | **API** | Node.js/Express backend (port 5001) — handles business logic |
-| 4 | **DB** | PostgreSQL (port 5432) — persistent data storage |
-| 5 | **Redis** | Cache & sessions (port 6379) — fast data access |
-| 6 | **Storage** | Local filesystem — uploaded files storage |
+| 2 | **Nginx** | Reverse proxy (port 80/443) - routes requests, serves static files |
+| 3 | **API** | Node.js/Express backend (port 5001) - handles business logic |
+| 4 | **DB** | PostgreSQL (port 5432) - persistent data storage |
+| 5 | **Redis** | Cache & sessions (port 6379) - fast data access |
+| 6 | **Storage** | Local filesystem - uploaded files storage |
 
 ---
 
@@ -235,8 +213,8 @@ fototips/
         ├── App.jsx
         ├── index.css
         ├── components/          # React components
-        ├── pages/               # Page components
-        └── i18n.jsx             # Internationalization
+        ├── pages/              # Page components
+        └── i18n.jsx            # Internationalization
 ```
 
 ---
@@ -269,7 +247,6 @@ docker-compose up -d
 ```
 
 4. **Access the application:**
-
 | Service | URL |
 |---------|-----|
 | Frontend | http://localhost |
@@ -333,9 +310,9 @@ npm run dev
 #### JWT
 | Variable | Description | Default |
 |----------|-------------|---------|
-| `JWT_SECRET` | JWT signing secret | — |
+| `JWT_SECRET` | JWT signing secret | - |
 | `JWT_EXPIRES_IN` | Token expiry | `7d` |
-| `JWT_REFRESH_SECRET` | Refresh token secret | — |
+| `JWT_REFRESH_SECRET` | Refresh token secret | - |
 | `JWT_REFRESH_EXPIRES_IN` | Refresh expiry | `30d` |
 
 #### Upload
@@ -378,6 +355,7 @@ The database uses PostgreSQL with UUID primary keys. Key tables include:
 | **Forum** | `forum_categories`, `forum_threads`, `forum_posts`, `forum_tags` |
 | **Messaging** | `conversations`, `messages`, `message_blocks` |
 | **Contests** | `contests`, `votes` |
+| **Store** | `products`, `orders`, `store_cart_items`, `store_wishlists` |
 | **Settings** | `platform_settings`, `user_settings` |
 | **i18n** | `languages`, `translation_keys`, `translations` |
 
@@ -454,6 +432,15 @@ Or use the Docker setup which runs migrations automatically on container startup
 | GET | `/api/forum/threads/:id` | Get thread |
 | POST | `/api/forum/threads/:id/reply` | Reply to thread |
 
+### Store Endpoints
+
+| Method | Endpoint | Description |
+|--------|----------|-------------|
+| GET | `/api/store/products` | List products |
+| POST | `/api/store/products` | Create product |
+| GET | `/api/store/products/:id` | Get product |
+| POST | `/api/store/orders` | Create order |
+
 ### Search Endpoints
 
 | Method | Endpoint | Description |
@@ -522,7 +509,7 @@ Or use the Docker setup which runs migrations automatically on container startup
 - ✅ Input validation
 - ✅ Secure password hashing (bcrypt)
 - ✅ SQL injection prevention (parameterized queries)
-- ✅ XSS protection (Helmet.js)
+- ✅ XSS protection (helmet)
 - ✅ Two-Factor Authentication (2FA) with TOTP
 - ✅ Email verification
 - ✅ Login activity tracking with device detection
@@ -554,25 +541,9 @@ Or use the Docker setup which runs migrations automatically on container startup
 
 ---
 
-## 📅 Status
-
-This project is currently **under active development**. No public demo is available yet.
-
-- [x] Core photo upload & gallery
-- [x] User profiles & social features
-- [x] Admin panel with dashboard
-- [x] Theme customization
-- [x] i18n (EN + LV)
-- [x] OAuth (Google, GitHub, Microsoft, Discord)
-- [x] 2FA & security settings
-- [x] Forum
-- [ ] Public demo
-
----
-
 ## 📝 License
 
-MIT License — Feel free to use this project for your own purposes.
+MIT License - Feel free to use this project for your own purposes.
 
 ---
 
