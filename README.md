@@ -13,7 +13,7 @@
 
 A modern, full-featured photography sharing platform built with React, Node.js, PostgreSQL, and Socket.IO. A community-driven platform for photographers to share, discover, and discuss photography.
 
-## 📸 Screenshots
+## 📸 Screenshots: Coming soon
 
 | Home | Gallery | Profile |
 |------|---------|---------|
