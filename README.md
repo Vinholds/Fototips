@@ -1,7 +1,5 @@
 # 🚀 Fototips - Photography Sharing Platform
 
-Photographer working in IT. Passionate about web development & design. Creator of fototips.lv — a Latvian photography community that ran its course. After years of searching for the perfect photography platform and finding nothing that had it all, I decided to rebuild it from scratch. And so, Fototips was born — a unique platform where everything a photographer needs lives in one place.
-
 <p align="center">
   <strong>🌐 Live Demo: coming soon</strong>
 </p>
